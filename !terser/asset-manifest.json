@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "static/js/main.190d9bee.js",
+    "runtime-main.js": "static/js/runtime-main.f784ae5c.js",
+    "vendors.js": "static/js/vendors.cedcab13.js",
+    "index.html": "index.html",
+    "site.webmanifest": "site.webmanifest",
+    "static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;": "static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;.1feff74f.bin",
+    "robots.txt": "robots.txt",
+    "main.190d9bee.js.map": "static/js/main.190d9bee.js.map",
+    "runtime-main.f784ae5c.js.map": "static/js/runtime-main.f784ae5c.js.map",
+    "vendors.cedcab13.js.map": "static/js/vendors.cedcab13.js.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f784ae5c.js",
+    "static/js/vendors.cedcab13.js",
+    "static/js/main.190d9bee.js"
+  ]
+}

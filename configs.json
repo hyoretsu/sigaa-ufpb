@@ -1,0 +1,183 @@
+{
+ "cache": true,
+ "experiments": { "asset": true },
+ "module": {
+  "rules": [
+   { "parser": { "requireEnsure": false } },
+   {
+    "test": "/\\.(js|ts)x?$/",
+    "exclude": "/node_modules/",
+    "use": { "loader": "babel-loader", "options": { "cacheCompression": false, "cacheDirectory": true } }
+   },
+   {
+    "test": "/\\.css$/",
+    "use": [
+     { "loader": "css-loader", "options": { "importLoaders": 1 } },
+     {
+      "loader": "/home/hyoretsu/@Projects/reactjs-template/node_modules/.pnpm/mini-css-extract-plugin@1.6.0_webpack@5.36.2/node_modules/mini-css-extract-plugin/dist/loader.js",
+      "options": { "publicPath": "" }
+     }
+    ],
+    "sideEffects": true
+   },
+   { "test": "/\\.(jpe?g|png|gif)$/", "type": "asset" },
+   { "test": "/\\.svg$/", "use": [{ "loader": "@svgr/webpack" }] },
+   {
+    "exclude": ["/\\.(js|ts)x?$/", "/\\.html$/", "/\\.json$/"],
+    "use": [{ "loader": "file-loader", "options": { "name": "static/media/[name].[hash:8].[ext]" } }]
+   }
+  ],
+  "strictExportPresence": true
+ },
+ "output": {
+  "path": "/home/hyoretsu/@Projects/reactjs-template/build",
+  "assetModuleFilename": "static/media/[name].[hash:8][ext]",
+  "chunkFilename": "static/js/[name].[contenthash:8].chunk.js",
+  "filename": "static/js/[name].[contenthash:8].js",
+  "publicPath": "",
+  "globalObject": "this"
+ },
+ "plugins": [
+  {
+   "dangerouslyAllowCleanPatternsOutsideProject": false,
+   "dry": false,
+   "verbose": false,
+   "cleanStaleWebpackAssets": true,
+   "protectWebpackAssets": true,
+   "cleanAfterEveryBuildPatterns": [],
+   "cleanOnceBeforeBuildPatterns": ["**/*"],
+   "currentAssets": [],
+   "initialClean": false,
+   "outputPath": ""
+  },
+  { "patterns": [{ "from": "public", "globOptions": { "ignore": ["**/index.html"] } }], "options": {} },
+  {
+   "userOptions": {
+    "inject": true,
+    "template": "/home/hyoretsu/@Projects/reactjs-template/public/index.html",
+    "minify": {
+     "collapseBooleanAttributes": true,
+     "collapseInlineTagWhitespace": true,
+     "collapseWhitespace": true,
+     "decodeEntities": true,
+     "keepClosingSlash": true,
+     "minifyCSS": true,
+     "minifyJS": true,
+     "minifyURLs": true,
+     "processConditionalComments": true,
+     "removeAttributeQuotes": true,
+     "removeComments": true,
+     "removeEmptyAttributes": true,
+     "removeRedundantAttributes": true,
+     "removeScriptTypeAttributes": true,
+     "removeStyleLinkTypeAttributes": true,
+     "trimCustomFragments": true,
+     "useShortDoctype": true
+    }
+   },
+   "version": 5
+  },
+  {
+   "_sortedModulesCache": {},
+   "options": {
+    "filename": "static/css/[name].[contenthash:8].css",
+    "ignoreOrder": false,
+    "experimentalUseImportModule": false,
+    "chunkFilename": "static/css/[name].[contenthash:8].chunk.css"
+   },
+   "runtimeOptions": { "linkType": "text/css" }
+  },
+  {
+   "options": {
+    "basePath": "",
+    "fileName": "asset-manifest.json",
+    "filter": null,
+    "map": null,
+    "publicPath": null,
+    "removeKeyHash": "/([a-f0-9]{16,32}\\.?)/gi",
+    "sort": null,
+    "transformExtensions": "/^(gz|map)$/i",
+    "useEntryKeys": false,
+    "writeToFileEmit": false
+   }
+  },
+  {
+   "key": "ESLintWebpackPlugin",
+   "options": {
+    "extensions": ["ts", "tsx", "js", "jsx"],
+    "emitError": true,
+    "emitWarning": true,
+    "failOnError": true,
+    "cache": true,
+    "cacheLocation": "/home/hyoretsu/@Projects/reactjs-template/node_modules/.cache/.eslintcache",
+    "context": "/home/hyoretsu/@Projects/reactjs-template/src",
+    "cwd": "/home/hyoretsu/@Projects/reactjs-template",
+    "formatter": "/home/hyoretsu/@Projects/reactjs-template/node_modules/.pnpm/react-dev-utils@11.0.4/node_modules/react-dev-utils/eslintFormatter.js",
+    "resolvePluginsRelativeTo": "/home/hyoretsu/@Projects/reactjs-template"
+   }
+  },
+  {
+   "options": {
+    "test": "/\\.(js|css|html|svg)$/",
+    "compressionOptions": {},
+    "filename": "[path][base].gz",
+    "threshold": 0,
+    "minRatio": 0.8,
+    "deleteOriginalAssets": false
+   }
+  },
+  {
+   "options": {
+    "test": "/\\.(js|css|html|svg)$/",
+    "algorithm": "brotliCompress",
+    "compressionOptions": { "params": { "1": 11 }, "level": 11 },
+    "filename": "[path][base].br",
+    "threshold": 0,
+    "minRatio": 0.8,
+    "deleteOriginalAssets": false
+   }
+  }
+ ],
+ "resolve": {
+  "alias": {
+   "react-native": "react-native-web",
+   "react-dom$": "react-dom/profiling",
+   "scheduler/tracing": "scheduler/tracing-profiling"
+  },
+  "extensions": [".ts", ".tsx", ".json", ".js", ".jsx"],
+  "modules": ["node_modules", "/home/hyoretsu/@Projects/reactjs-template/src"],
+  "plugins": [{ "appSrcs": ["/home/hyoretsu/@Projects/reactjs-template/src"], "allowedFiles": {} }]
+ },
+ "mode": "production",
+ "bail": true,
+ "devtool": "source-map",
+ "optimization": {
+  "splitChunks": {
+   "cacheGroups": {
+    "vendors": { "test": "/node_modules\\/(.*\\/?)(react-icons.*\\/).*/", "name": "vendors", "chunks": "all" },
+    "ui": { "test": "/node_modules\\/(.*\\/?)(react-icons.*\\/).*/", "name": "ui", "chunks": "all" }
+   }
+  },
+  "runtimeChunk": { "name": "runtime-main" },
+  "minimizer": [
+   {
+    "options": {
+     "test": "/\\.[cm]?js(\\?.*)?$/i",
+     "extractComments": true,
+     "parallel": true,
+     "terserOptions": {
+      "compress": { "ecma": 5, "comparisons": false, "inline": 2 },
+      "keep_classnames": true,
+      "keep_fnames": true,
+      "mangle": { "safari10": true },
+      "output": { "ascii_only": true, "comments": false, "ecma": 5, "shorthand": true },
+      "parse": { "ecma": 2017 },
+      "sourceMap": true
+     }
+    }
+   },
+   { "options": { "test": "/\\.css(\\?.*)?$/i", "parallel": true } }
+  ]
+ },
+ "performance": false
+}
